@@ -17,7 +17,6 @@
     "footer_col2": "<p>Footer column 2</p>",
     "footer_col3": "<p>Footer column 3</p>"
   },
-  "customTemplateFolder": "huc_di",
   "defaults": [
     {
       "name": "template",
