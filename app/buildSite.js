@@ -6,7 +6,7 @@ let markdown = require("markdown").markdown;
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const config = require("../../config.json");
+const config = require("../../ssg_config.json");
 const sitedata = require("../../content/data/site.json");
 const outputDir = config.dirOutput;
 //const markdownDir = "content/markdown/";
