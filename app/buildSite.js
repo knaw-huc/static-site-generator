@@ -6,7 +6,7 @@ let markdown = require("markdown").markdown;
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const config = require("../../ssg_config.json");
+const config = require("../../config.json");
 const sitedata = require("../../content/data/site.json");
 const outputDir = config.dirOutput;
 //const markdownDir = "content/markdown/";
@@ -419,31 +419,36 @@ function createAltPageLists() {
 
 
 function createLanguageToggle() {
+  let langAmount = Object.keys(sitedataLang).length
+
   let langToggle=''
-  console.log(sitedataLang);
-  for (const [key, value] of Object.entries(sitedataLang)) {
-    let label = findInArray(sitedataLang[key], 10000, 'page_order', 'language')
-    let link = findInArray(sitedataLang[key], 10000, 'page_order', 'file_name')
+  if (langAmount > 1) {
+    for (const [key, value] of Object.entries(sitedataLang)) {
+      let label = findInArray(sitedataLang[key], 10000, 'page_order', 'language')
+      let link = findInArray(sitedataLang[key], 10000, 'page_order', 'file_name')
 
 
-    let languageName
+      let languageName
 
-    switch (label) {
-      case 'en':
-        languageName = 'English'
-        break;
-      case 'nl':
-        languageName = 'Nederlands'
-        break;
-      case 'fr':
-        languageName = 'Français'
-        break;
-      case 'de':
-        languageName = 'Deutsch'
-        break;
+      switch (label) {
+        case 'en':
+          languageName = 'English'
+          break;
+        case 'nl':
+          languageName = 'Nederlands'
+          break;
+        case 'fr':
+          languageName = 'Français'
+          break;
+        case 'de':
+          languageName = 'Deutsch'
+          break;
+      }
+      langToggle += '<a href="'+link+'" aria-label="'+languageName+'">'+label+'</a>'
     }
-    langToggle += '<a href="'+link+'" aria-label="'+languageName+'">'+label+'</a>'
+
   }
+
 
   for (const [key, value] of Object.entries(sitedataLang)) {
     sitedataLang[key].forEach((page, i) => {
