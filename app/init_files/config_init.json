@@ -8,6 +8,7 @@
   "url": "",
   "markup": {
     "color_sidebar_background": "hsl(0, 0%, 100%)",
+    "color_sidebar_txt": "hsl(0, 0%, 13%)",
     "color_content_background": "hsl(55, 40%, 96%)",
     "color_footer_background": "hsl(55, 53%, 81%)",
     "branding_logo": "logo-knaw-humanities-cluster.png"
