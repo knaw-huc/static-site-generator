@@ -1,0 +1,34 @@
+{
+  "dirOutput": "../httpDocs/",
+  "dirContent": "../content",
+  "dirMarkdown": "../content/markdown",
+  "dirJson": "../content/data",
+  "languageDefault": "en",
+  "url": "http://di.huc.knaw.nl",
+  "defaults": [
+    {
+      "name": "template",
+      "val": "di_detail.html"
+    },
+    {
+      "name": "title",
+      "val": "** Need action: No title **"
+    },
+    {
+      "name": "type",
+      "val": "page"
+    },
+    {
+      "name": "publish_date",
+      "val": "2022-01-01"
+    },
+    {
+      "name": "feautred_img",
+      "val": ""
+    },
+    {
+      "name": "page_level",
+      "val": 0
+    }
+  ]
+}

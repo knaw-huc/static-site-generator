@@ -6,9 +6,11 @@ To run this site builder you need node.js installed
 
 ## Initial site setup
 
-git clone /url/to/repo/with/submodules
-git submodule init
-git submodule update
+
+Clone the generator files as a submodule:
+`git clone https://github.com/knaw-huc/static-site-generator`
+`git submodule init`
+`git submodule update`
 
 
 ## you need
