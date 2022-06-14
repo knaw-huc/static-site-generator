@@ -3,7 +3,7 @@ const path = require("path");
 let sass = require("sass");
 let markdown = require("markdown").markdown;
 
-const config = require("../../config.json");
+const config = require("../../ssg_config.json");
 
 
 
