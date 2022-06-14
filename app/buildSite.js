@@ -75,7 +75,7 @@ function createCustomCss() {
   let css = '.colContentWide{'
   css +=    'background-color:  '+config.markup.color_content_background+'; '
   css +=    ' }'
-  css += '.colNav, .colNav a{'
+  css += '.colNav, .colNav nav a{'
   css +=    'background-color:  '+config.markup.color_sidebar_background+'; '
   css +=    'color:  '+config.markup.color_sidebar_txt+'; '
   css +=    ' }'
