@@ -6,7 +6,7 @@ let markdown = require("markdown").markdown;
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const config = require("../../config.json");
+const config = require("../../ssg_config.json");
 const sitedata = require("../../content/data/site.json");
 const outputDir = config.dirOutput;
 //const markdownDir = "content/markdown/";
@@ -420,6 +420,7 @@ function createAltPageLists() {
 
 function createLanguageToggle() {
   let langToggle=''
+  console.log(sitedataLang);
   for (const [key, value] of Object.entries(sitedataLang)) {
     let label = findInArray(sitedataLang[key], 10000, 'page_order', 'language')
     let link = findInArray(sitedataLang[key], 10000, 'page_order', 'file_name')

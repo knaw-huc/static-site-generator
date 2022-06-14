@@ -16,7 +16,10 @@ Clone the generator files as a submodule:
 - `npm install`
 
 - `npm run init`
+
+## Run the builder
 - `npm run start`
+
 
 ## Site setup
 After the initial site setup,a folder is placed claas `content`. This folder contains three subfolders: _data_, _images_ and _markdown_. You can ignore the _data_ folder. All the images are stored in the _images_ folder.
@@ -45,7 +48,7 @@ About
 Contact
 ```
 
-## metadata
+## Metadata
 Each markdown file starts with a metadata segment:
 ```
 ---
@@ -53,14 +56,17 @@ title: Colofon
 ---
 ```
 A title property is mandatory. Others are optional. Here's a list you can choose from:
-- `author: Arno Bosse`
+- `author: Jan Jansen`
 - `type: page` // news / feature
 - `meta_description: site about the Golden Agents project` // for CEO purpose
 - `meta_keyword: science, humanities, KNAW Humanities Cluster` // for CEO purpose
 - `summary: A little summary` // can be used on a overview page.
 - `featured_image: thumb.jpg` // thumbnail for overview page. Image for sharing
 
-<!-- title: Tekstanalyse
+<!--
+  "customTemplateFolder": "huc_di",
+
+title: Tekstanalyse
 author: Arno Bosse
 type: news / feature / page
 list_feature: true // feature list

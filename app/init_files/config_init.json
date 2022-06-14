@@ -5,10 +5,10 @@
   "dirJson": "../content/data",
   "languageDefault": "en",
   "siteName": "New site",
-  "url": "http://di.huc.knaw.nl",
+  "url": "",
   "markup": {
     "color_sidebar_background": "hsl(0, 0%, 100%)",
-    "color_content_background": "hsl(55, 53%, 94%)",
+    "color_content_background": "hsl(55, 40%, 96%)",
     "color_footer_background": "hsl(55, 53%, 81%)",
     "branding_logo": "logo-knaw-humanities-cluster.png"
   },
