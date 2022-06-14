@@ -35,6 +35,7 @@ function build() {
   fs.remove(outputDir)
     .then(createFolder)
     .then(handleLanguage)
+    .then(createCustomCss)
     .then(addPageBreadCrumb)
     .then(addPageNavigationList)
     //.then(addPageSubNavigationList)
@@ -69,6 +70,18 @@ function createSite() {
   createSass("src/scss/style.scss");
 }
 
+
+function createCustomCss() {
+  let css = '.colContentWide{'
+  css +=    'background-color:  '+config.markup.color_content_background+'; '
+  css +=    ' }'
+  css += '.colNav{'
+  css +=    'background-color:  '+config.markup.color_sidebar_background+'; '
+  css +=    'color:  '+config.markup.color_content_txt+'; '
+  css +=    ' }'
+
+  createFile('./src/scss/_template_custom.scss', css);
+}
 
 
 function handleLanguage() {

@@ -18,7 +18,7 @@
   "nodemonConfig": {
     "ignore": [
       "_dist/*",
-      "src/components/markdown/*"
+      "src/scss/_template_custom.scss"
     ]
   },
   "keywords": [],

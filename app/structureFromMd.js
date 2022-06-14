@@ -15,7 +15,6 @@ const getFileList = async (dirName) => {
     const items = await readdir(dirName, { withFileTypes: true });
 
     for (const item of items) {
-      console.log(item);
         if (item.isDirectory()) {
             files = [
                 ...files,
