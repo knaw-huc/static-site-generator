@@ -22,11 +22,14 @@ Clone the generator files as a submodule:
 
 
 ## Site setup
-After the initial site setup,a folder is placed claas `content`. This folder contains three subfolders: _data_, _images_ and _markdown_. You can ignore the _data_ folder. All the images are stored in the _images_ folder.
+After the initial site setup, go to the folder `content`. This folder contains three subfolders: _data_, _images_ and _markdown_. You can ignore the _data_ folder. All the images are stored in the _images_ folder.
 The markdown files are stored in the folder _markdown_.
 
 ## Languages
 You can have multiple languages for your site. For each language add a folder in the _markdown_ folder named with a language code. For example: `en` for English, `nl`for Dutch. By default an `en` folder is created.
+
+## configuration
+In the root of the project is a file called 'ssg_config.json'. Here you edit some basic configuration like _site name_, _Default language_ and some colors.
 
 ## Site structure
 The structure or site tree of your site is filed in the naming of the markdown files. The first 5 characters of the filename set the structure. The first 2 digits set the top level. The two digits after the underscore set the second level pages. A top level page has 00 as a second level. The homepage always starts with 00_00. After the first five digets you enter a name of the flie. Here's an example:
