@@ -207,12 +207,14 @@ function createContentList() {
 
 
 function addPageBreadCrumb() {
+
   //
   for (const [key, value] of Object.entries(sitedataLang)) {
 
     let parentPageName = '';
     let parentPageLink = '';
     let parentPageLevel = 1;
+    let parentDirectSubPages = false;
 
     sitedataLang[key].forEach((page, i) => {
       let breadCrumb = '<a href="index.html">Home</a> ';
@@ -223,6 +225,7 @@ function addPageBreadCrumb() {
         breadCrumb += currPage;
         parentPageName = page.title
         parentPageLink = page.file_name
+        parentDirectSubPages = page.directSubpages
 
       } else if (page.page_level = 2) {
         // if subpage
@@ -230,9 +233,13 @@ function addPageBreadCrumb() {
 
         if (page.type == 'feature') {
           breadCrumb += '<span class="breadCrumb__seperator">|</span> <span>' + page.title + '</span>'
-        } else {
+        } else if (parentDirectSubPages) {
+            breadCrumb += '<span class="breadCrumb__seperator">|</span> <span>' + parentPageName + '</span>' + currPage;
+          } else {
           breadCrumb += '<span class="breadCrumb__seperator">|</span> <a href="' + parentPageLink + '">' + parentPageName + '</a> ' + currPage;
         }
+
+
 
       }
       sitedataLang[key][i].breadcrumb = breadCrumb;
@@ -289,7 +296,7 @@ function addPageNavigationList() {
           } else {
             let subClass= ''
             if (subNav != '') {
-              subNav = '<button class="subMenuButton" id="'+navItem.title.toLowerCase()+'" aria-label="Open submenu for '+navItem.title+'"><svg viewBox="0 0 30 30" class="openArrow"> <polygon points="0,0 30,15 0,30" class="svgArrow"/> </svg></button><ul id="sub_'+navItem.title.toLowerCase()+'" class="subnav">'+subNav+'</ul>'
+              subNav = '<button class="subMenuButton" id="'+navItem.title.toLowerCase()+'" aria-label="Open submenu for '+navItem.title+'"><svg viewBox="0 0 30 30" class="openArrow"> <polygon points="0,0 26,0 12,20" class="svgArrow"/> </svg></button><ul id="sub_'+navItem.title.toLowerCase()+'" class="subnav">'+subNav+'</ul>'
               subClass= 'subLi'
             }
             topNav = '<li class="'+subClass+'" id="parent_' + navItem.title.toLowerCase() + '">'+tempUl + subNav + '</li>'+topNav

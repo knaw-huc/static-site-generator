@@ -29,8 +29,6 @@ const getFileList = async (dirName) => {
             let nameParts = filename.split('/')
             files.push({lang:nameParts[0], fileName: nameParts[1]});
           }
-
-
         }
     }
 
@@ -51,7 +49,7 @@ function createSiteJson(files) {
 
 
   return new Promise((resolve, reject) => {
-  //console.log(files);
+  //console.log('Number of files:',files.length);
   let siteData = []
 
   files.forEach((file, i) => {
@@ -64,6 +62,7 @@ function createSiteJson(files) {
         let pageObj = {}
 
         pageObj.language = file.lang
+        pageObj['isLang_'+file.lang] = true;
         let level1 = file.fileName.substr(0, 2)
         let level2 = file.fileName.substr(3, 2)
         let order = '1' + level1 + level2;
@@ -79,6 +78,7 @@ function createSiteJson(files) {
         pageObj.url = config.url
         pageObj.markup = config.markup
         pageObj.siteName = config.siteName
+        pageObj.siteFavicon = config.siteFavicon
         pageObj.content = config.content
         pageObj.customTemplateFolder = config.customTemplateFolder
 
@@ -131,13 +131,11 @@ function createSiteJson(files) {
           }
         }) // trough lines
         siteData.push(pageObj)
-        //console.log(pageObj.title);
+        //console.log(i);
 
-        // console.log('i',i);
-        // console.log('f',files.length-1);
-
-        if ( i == files.length-1) {
+        if ( siteData.length == files.length) {
           resolve(siteData);
+          //createFile(config.dirJson+'/site1.json', JSON.stringify(siteData));
         }
 
     });
@@ -150,6 +148,8 @@ function createSiteJson(files) {
 
 
 function orderingData(siteData) {
+  //console.log('func sort',siteData.length);
+  //createFile(config.dirJson+'/site0.json', JSON.stringify(siteData));
   //console.log('func sort',siteData);
   return new Promise((resolve, reject) => {
     siteData = sortByKey(siteData, 'page_order')
@@ -197,6 +197,7 @@ function validateData(siteDataIm) {
     let filename = siteDataIm[i].title
     filename = filename.replaceAll(' ','-')
     filename = filename.replaceAll('&','')
+    filename = filename.replaceAll('?','')
     if ( (siteDataIm[i].page_order == 10000) && (siteDataIm[i].language == config.languageDefault) ) {
       siteDataIm[i].file_name = 'index.html'
     } else {
