@@ -402,23 +402,29 @@ function createAltPageLists() {
            const pubDate = new Date(publication_dateToGet);
            const unixTimestamp = Math.floor(pubDate.getTime() / 1000);
 
+           let tmpObj = {}
 
-           pageList.push({
-             file_name: item.file_name,
-             title: item.title,
-             author: item.author,
-             type: item.type,
-             htmlContent: item.htmlContent,
-             publication_date: item.publication_date,
-             dateOrder: unixTimestamp,
-             summary: item.summary,
-             featured_image: item.featured_image
-           })
+           for (const [key, value] of Object.entries(item)) {
+            tmpObj[key] = value
+            }
+            tmpObj.dateOrder = unixTimestamp;
+
+
+           pageList.push(tmpObj)
          }
        });
-
-       pageList = sortByKey(pageList, 'dateOrder')
-       pageList = pageList.reverse()
+        
+       console.log(config.customPageTypes[cat], cat);
+       if (!config.customPageTypes[cat] === undefined) {
+        console.log('$$', config.customPageTypes[cat].listordering);
+        pageList = sortByKey(pageList, config.customPageTypes[cat].listordering)
+        pageList = pageList.reverse()
+       } else {
+        console.log('** undefined');
+        pageList = sortByKey(pageList, 'dateOrder')
+        pageList = pageList.reverse()
+       }
+       
 
 
 

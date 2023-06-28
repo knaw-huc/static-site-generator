@@ -76,6 +76,7 @@ list_feature: true // feature list
 list_news: true // news list
 list_subpages: true // underlaying pages (level 2)
 publication_date: 22-03-2022
+template: default.html
 summary: // teaser text for news snippits
 meta_description:
 meta_keyword:
