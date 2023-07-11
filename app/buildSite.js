@@ -413,14 +413,10 @@ function createAltPageLists() {
            pageList.push(tmpObj)
          }
        });
-        
-       console.log(config.customPageTypes[cat], cat);
-       if (!config.customPageTypes[cat] === undefined) {
-        console.log('$$', config.customPageTypes[cat].listordering);
+    
+       if (config.customPageTypes[cat] !== undefined) {
         pageList = sortByKey(pageList, config.customPageTypes[cat].listordering)
-        pageList = pageList.reverse()
        } else {
-        console.log('** undefined');
         pageList = sortByKey(pageList, 'dateOrder')
         pageList = pageList.reverse()
        }
